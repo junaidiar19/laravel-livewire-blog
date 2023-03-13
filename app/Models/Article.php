@@ -33,10 +33,5 @@ class Article extends Model
         $query->when($params['search'], function($query) use ($params) {
             $query->where('title', 'like', '%'.$params['search'].'%');
         });
-
-        // filter by category
-        $query->when($params['category'], function($query) use ($params) {
-            $query->whereRelation('category', 'slug', $params['category']);
-        });
     }
 }
