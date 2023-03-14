@@ -24,7 +24,7 @@ class ArticleFactory extends Factory
             'title' => $title,
             'is_published' => 1,
             'cover' => fake()->imageUrl(800, 550, 'article'),
-            'body' => fake()->text(500),
+            'content' => fake()->text(500),
             'category_id' => Category::inRandomOrder()->first()->id,
             'user_id' => 1,
         ];
