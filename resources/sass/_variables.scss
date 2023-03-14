@@ -5,3 +5,20 @@ $body-bg: #fff;
 $font-family-sans-serif: 'Poppins', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+
+// Tabs
+$nav-pills-link-active-color: var(--bs-dark) !important;
+$nav-pills-link-active-bg: transparent !important;
+$nav-pills-border-radius: 0 !important;
+
+.nav-pills .nav-link {
+  color: var(--bs-secondary);
+}
+
+.nav-pills .nav-link:hover, .nav-pills .nav-link:focus {
+  color: var(--bs-gray-700) !important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  border-bottom: 1px solid var(--bs-gray-700);
+}

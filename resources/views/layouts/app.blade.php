@@ -23,9 +23,20 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white border-bottom">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
+                <div class="d-flex align-items-center">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        <img src="{{ asset('img/logo.svg') }}" height="30" alt="">
+                    </a>
+                    <form action="{{ route('articles.index') }}">
+                        <div class="input-group">
+                            <span class="input-group-text bg-white border-0" id="searching">
+                                <i class="bi-search"></i>
+                            </span>
+                            <input type="text" class="form-control border-0 ps-1 shadow-none" name="search"
+                                placeholder="Searching..." aria-label="Searching..." aria-describedby="searching">
+                        </div>
+                    </form>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -34,13 +45,21 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-                        @auth
-                            <li class="nav-item">
-                                <a class="nav-link {{ request()->routeIs('users.article') ? 'active' : '' }}"
-                                    href="{{ route('users.article') }}">{{ __('My Article') }}</a>
-                            </li>
-                        @endauth
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a href="{{ route('articles.index') }}" class="nav-link">Explore</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Category
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Data Science</a></li>
+                                <li><a class="dropdown-item" href="#">Technology</a></li>
+                                <li><a class="dropdown-item" href="#">Programming</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -66,6 +85,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @auth
+                                        <a href="{{ route('users.article') }}" class="dropdown-item">
+                                            My Article
+                                        </a>
+                                    @endauth
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

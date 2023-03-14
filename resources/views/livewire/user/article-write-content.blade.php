@@ -5,7 +5,8 @@
 
                 <div class="mb-3">
                     <a href="{{ route('users.article') }}" class="text-decoration-none"><i class="bi-arrow-left me-1"></i>
-                        Kembali</a>
+                        Kembali
+                    </a>
                 </div>
                 <div class="card">
                     <div class="card-header py-3 bg-white">
