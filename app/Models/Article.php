@@ -30,7 +30,7 @@ class Article extends Model
     public function scopeFilter($query, array $params): void
     {
         // searching by title
-        $query->when($params['search'], function($query) use ($params) {
+        $query->when(@$params['search'], function($query) use ($params) {
             $query->where('title', 'like', '%'.$params['search'].'%');
         });
     }
