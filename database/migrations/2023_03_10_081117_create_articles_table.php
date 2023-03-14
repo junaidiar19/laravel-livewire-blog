@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('title');
-            $table->text('body')->nullable();
+            $table->text('content')->nullable();
             $table->boolean('is_published');
             $table->text('cover')->nullable();
             $table->foreignId('category_id')->constrained('categories');

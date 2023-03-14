@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\HomeIndex;
 use App\Http\Livewire\User\ArticleIndex as UserArticleIndex;
+use App\Http\Livewire\User\ArticleWriteContent;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,4 +22,8 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/users/article', UserArticleIndex::class)->name('users.article');
+Route::middleware(['auth'])->group(function () {
+  Route::get('/users/article', UserArticleIndex::class)->name('users.article');
+
+  Route::get('/users/article/{id}/write', ArticleWriteContent::class)->name('users.article.write');
+});

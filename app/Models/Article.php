@@ -15,7 +15,7 @@ class Article extends Model
      *
      * @var array
      */
-    protected $fillable = ['slug', 'title', 'body', 'is_published', 'cover', 'category_id', 'user_id'];
+    protected $fillable = ['slug', 'title', 'content', 'is_published', 'cover', 'category_id', 'user_id'];
 
     public function category(): BelongsTo
     {
@@ -33,5 +33,10 @@ class Article extends Model
         $query->when($params['search'], function($query) use ($params) {
             $query->where('title', 'like', '%'.$params['search'].'%');
         });
+    }
+
+    public function getCoverUrlAttribute()
+    {
+        return 'https://via.placeholder.com/800x500.png?text=' . $this->title;
     }
 }

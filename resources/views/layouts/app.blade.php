@@ -14,6 +14,9 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    @livewireStyles
+    @stack('styles')
 </head>
 
 <body>
@@ -34,7 +37,8 @@
                     <ul class="navbar-nav me-auto">
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('users.article') }}">{{ __('My Article') }}</a>
+                                <a class="nav-link {{ request()->routeIs('users.article') ? 'active' : '' }}"
+                                    href="{{ route('users.article') }}">{{ __('My Article') }}</a>
                             </li>
                         @endauth
                     </ul>
@@ -83,6 +87,10 @@
             @yield('content')
         </main>
     </div>
+
+    @livewireScripts
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @stack('scripts')
 </body>
 
 </html>
