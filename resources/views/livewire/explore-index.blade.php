@@ -36,8 +36,8 @@
             @endforelse
         </div>
 
-        <div class="d-flex justify-content-center">
-            {{ $articles->links() }}
+        <div class="d-flex justify-content-center py-4">
+            <button class="btn btn-primary px-4 rounded-pill" wire:click="loadMore">Load More</button>
         </div>
     </div>
 </div>
