@@ -2,19 +2,15 @@
     <div class="container py-2">
         <ul class="nav nav-pills border-bottom mb-4">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">For You</a>
+                <a class="nav-link active" wire:click="handleCategory" aria-current="page" href="#">For You</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Data Science</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Technology</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Programming</a>
-            </li>
+            @foreach ($categories as $item)
+                <li class="nav-item">
+                    <a class="nav-link" href="#"
+                        wire:click="handleCategory('{{ $item->slug }}')">{{ $item->name }}</a>
+                </li>
+            @endforeach
         </ul>
-
         <div class="row">
             @foreach ($articles as $article)
                 <div class="col-md-3 mb-4 d-flex align-self-stretch">
