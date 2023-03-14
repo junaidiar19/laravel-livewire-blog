@@ -2,20 +2,20 @@
     <div class="container py-2">
         <ul class="nav nav-pills border-bottom mb-4">
             <li class="nav-item">
-                <a class="nav-link active" wire:click="handleCategory" aria-current="page" href="#">For You</a>
+                <a class="nav-link {{ !$category ? 'active' : '' }}" wire:click="handleCategory" aria-current="page"
+                    href="#">For You</a>
             </li>
             @foreach ($categories as $item)
                 <li class="nav-item">
-                    <a class="nav-link" href="#"
+                    <a class="nav-link {{ $category == $item->slug ? 'active' : '' }}" href="#"
                         wire:click="handleCategory('{{ $item->slug }}')">{{ $item->name }}</a>
                 </li>
             @endforeach
         </ul>
         <div class="row">
-            @foreach ($articles as $article)
+            @forelse ($articles as $article)
                 <div class="col-md-3 mb-4 d-flex align-self-stretch">
-                    <a href="{{ route('articles.show', $article->slug) }}"
-                        class="card text-decoration-none overflow-hidden border-0">
+                    <a href="{{ route('articles.show', $article->slug) }}" class="card text-decoration-none border-0">
                         <img src="{{ $article->cover_url }}" class="img-fluid rounded mb-3" alt="">
                         <div class="d-flex flex-column relative h-100">
                             <p class="text-muted mb-2">{{ $article->created_at->format('d M Y') }}</p>
@@ -27,7 +27,17 @@
                         </div>
                     </a>
                 </div>
-            @endforeach
+            @empty
+                <div class="col-md-12">
+                    <div class="text-center py-5">
+                        <p>-article not found-</p>
+                    </div>
+                </div>
+            @endforelse
+        </div>
+
+        <div class="d-flex justify-content-center">
+            {{ $articles->links() }}
         </div>
     </div>
 </div>

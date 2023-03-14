@@ -33,7 +33,8 @@
                                 <i class="bi-search"></i>
                             </span>
                             <input type="text" class="form-control border-0 ps-1 shadow-none" name="search"
-                                placeholder="Searching..." aria-label="Searching..." aria-describedby="searching">
+                                placeholder="Searching..." aria-label="Searching..." aria-describedby="searching"
+                                value="{{ @$_GET['search'] }}">
                         </div>
                     </form>
                 </div>
@@ -55,9 +56,24 @@
                                 Category
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Data Science</a></li>
-                                <li><a class="dropdown-item" href="#">Technology</a></li>
-                                <li><a class="dropdown-item" href="#">Programming</a></li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{{ route('articles.index', ['category' => 'data-science']) }}">
+                                        Data Science
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{{ route('articles.index', ['category' => 'technology']) }}">
+                                        Technology
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="{{ route('articles.index', ['category' => 'programming']) }}">
+                                        Programming
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

@@ -5,14 +5,22 @@ namespace App\Http\Livewire;
 use App\Models\Article;
 use App\Models\Category;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ExploreIndex extends Component
 {
     public $category;
+    public $search;
+
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+
+    protected $queryString = ['category', 'search'];
 
     public function render()
     {
         $params = [
+            'search' => $this->search,
             'category' => $this->category,
         ];
 
