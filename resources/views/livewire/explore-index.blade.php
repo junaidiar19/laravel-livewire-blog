@@ -16,21 +16,22 @@
         </ul>
 
         <div class="row">
-            @for ($i = 1; $i <= 12; $i++)
+            @foreach ($articles as $article)
                 <div class="col-md-3 mb-4 d-flex align-self-stretch">
-                    <a href="{{ route('articles.show', 'slug') }}"
+                    <a href="{{ route('articles.show', $article->slug) }}"
                         class="card text-decoration-none overflow-hidden border-0">
+                        <img src="{{ $article->cover_url }}" class="img-fluid rounded mb-3" alt="">
                         <div class="d-flex flex-column relative h-100">
-                            <img src="{{ asset('img/thumbnail.jpg') }}" class="img-fluid rounded mb-3" alt="">
-                            <p class="text-muted mb-2">{{ now()->format('d M Y') }}</p>
-                            <h6 class="fw-semibold text-dark lh-base">Lorem ipsum dolor sit amet consectetur,
-                                adipisicing
-                                elit.
-                            </h6>
+                            <p class="text-muted mb-2">{{ $article->created_at->format('d M Y') }}</p>
+                            <h6 class="fw-semibold text-dark lh-base">{{ $article->title }}</h6>
+
+                            <div class="mt-auto">
+                                <p class="text-muted">{{ $article->category->name }}</p>
+                            </div>
                         </div>
                     </a>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </div>
