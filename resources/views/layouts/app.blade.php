@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="d-flex align-items-center">
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{ asset('img/logo.svg') }}" height="30" alt="">
+                        <img src="{{ asset('img/logo-veldeva.svg') }}" height="30" alt="">
                     </a>
                     <form action="{{ route('articles.index') }}">
                         <div class="input-group">
@@ -46,7 +46,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
+                    <ul class="navbar-nav mx-auto">
                         <li class="nav-item">
                             <a href="{{ route('articles.index') }}" class="nav-link">Explore</a>
                         </li>

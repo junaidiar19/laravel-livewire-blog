@@ -36,8 +36,19 @@
             @endforelse
         </div>
 
-        <div class="d-flex justify-content-center py-4">
-            <button class="btn btn-primary px-4 rounded-pill" wire:click="loadMore">Load More</button>
-        </div>
+        @if ($articles->count() > 0)
+            <div class="d-flex justify-content-center py-4 pagination-section">
+                {{ $articles->links() }}
+            </div>
+        @endif
     </div>
+
+    @push('scripts')
+        <script>
+            document.querySelector('.pagination-section').addEventListener('click', function() {
+                console.log('first')
+                window.scrollTo(0, 0);
+            });
+        </script>
+    @endpush
 </div>

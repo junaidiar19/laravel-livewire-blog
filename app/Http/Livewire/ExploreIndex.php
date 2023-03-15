@@ -5,12 +5,16 @@ namespace App\Http\Livewire;
 use App\Models\Article;
 use App\Models\Category;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class ExploreIndex extends Component
 {
     public $category;
     public $search;
-    public $paginate = 8;
+    public $paginate = 12;
+
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
     protected $queryString = ['category', 'search'];
 
@@ -30,10 +34,5 @@ class ExploreIndex extends Component
     public function handleCategory($value = null)
     {
         $this->category = $value;
-    }
-
-    public function loadMore()
-    {
-        $this->paginate += 4;
     }
 }
