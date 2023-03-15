@@ -15,9 +15,9 @@
         <div class="row" wire:loading.flex>
             @for ($i = 1; $i <= 12; $i++)
                 <div class="col-md-3 mb-4">
-                    <div class="bg-white rounded-3 overflow-hidden">
-                        <div class="skeleton-box w-100" style="height: 170px;"></div>
-                        <diV class="p-3 rounded-bottom">
+                    <div class="bg-white rounded-3">
+                        <div class="skeleton-box w-100 rounded mb-3" style="height: 165px;"></div>
+                        <diV class="rounded-bottom">
                             <div class="skeleton-box w-25" style="height: 7px; border-radius: 5px;"></div>
                             <div class="skeleton-box w-100" style="height: 7px; border-radius: 5px;"></div>
                             <div class="skeleton-box w-75 mb-2" style="height: 7px; border-radius: 5px;"></div>
