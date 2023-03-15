@@ -12,7 +12,22 @@
                 </li>
             @endforeach
         </ul>
-        <div class="row">
+        <div class="row" wire:loading.flex>
+            @for ($i = 1; $i <= 12; $i++)
+                <div class="col-md-3 mb-4">
+                    <div class="bg-white rounded-3 overflow-hidden">
+                        <div class="skeleton-box w-100" style="height: 170px;"></div>
+                        <diV class="p-3 rounded-bottom">
+                            <div class="skeleton-box w-25" style="height: 7px; border-radius: 5px;"></div>
+                            <div class="skeleton-box w-100" style="height: 7px; border-radius: 5px;"></div>
+                            <div class="skeleton-box w-75 mb-2" style="height: 7px; border-radius: 5px;"></div>
+                            <div class="skeleton-box w-25" style="height: 7px; border-radius: 5px;"></div>
+                        </diV>
+                    </div>
+                </div>
+            @endfor
+        </div>
+        <div class="row" wire:loading.remove>
             @forelse ($articles as $article)
                 <div class="col-md-3 mb-4 d-flex align-self-stretch">
                     <a href="{{ route('articles.show', $article->slug) }}" class="card text-decoration-none border-0">
