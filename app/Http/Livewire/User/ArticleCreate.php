@@ -35,6 +35,10 @@ class ArticleCreate extends Component
             'user_id' => auth()->id(),
         ]);
 
+        // remove value
+        $this->title = null;
+        $this->category = null;
+
         // emit success
         $this->emit('article-stored');
     }

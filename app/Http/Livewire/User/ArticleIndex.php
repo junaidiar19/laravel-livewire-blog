@@ -52,6 +52,9 @@ class ArticleIndex extends Component
 
     public function articleUpdated()
     {
+        // set is edit to false
+        $this->isEdit = false;
+
         // alert success after update article
         session()->flash('success', 'Article successfully updated.');
     }
