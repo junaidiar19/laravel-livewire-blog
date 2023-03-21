@@ -78,7 +78,7 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header bg-white py-3">
-                    <h6 class="mb-0 fw-semibold">Add Article</h6>
+                    <h6 class="mb-0 fw-semibold">{{ $isEdit ? 'Edit' : 'Add' }} Article</h6>
                 </div>
                 <div class="card-body">
                     @if (@$isEdit)
