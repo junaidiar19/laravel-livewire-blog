@@ -27,7 +27,7 @@ class ArticleIndex extends Component
             'search' => $this->search,
         ];
 
-        $articles = Article::with('category')->filter($params)->latest()->paginate($this->row);
+        $articles = Article::with('category')->where('user_id', auth()->id())->filter($params)->latest()->paginate($this->row);
 
         return view('livewire.user.article-index', compact('articles'))->extends('layouts.app');
     }
