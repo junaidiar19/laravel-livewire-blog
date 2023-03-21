@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
         ]);
 
+        \App\Models\User::factory(1)->create();
         \App\Models\Article::factory(40)->create();
     }
 }
